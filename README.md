@@ -7,7 +7,7 @@ Bem-vindo ao repositório do meu portfólio pessoal! Este site foi desenvolvido 
 
 O portfólio está hospedado e pode ser acessado através do link abaixo:
 
-**[🔗 Acessar Portfólio ao Vivo]()**
+**[🔗 Acessar Portfólio ao Vivo](https://portfolio-italo-murex.vercel.app/)**
 
 
 ## 🛠️ Tecnologias Utilizadas
