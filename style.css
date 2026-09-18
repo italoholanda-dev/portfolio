@@ -787,11 +787,16 @@ textarea {
 
 /*PROJETOS */
 .projetos {
-  background: 
-    radial-gradient(circle at 80% 50%, rgba(18, 97, 214, 0.20), transparent 30%),
-    linear-gradient(120deg, #04101f 0%, #071a33 50%, #0b3d91 100%);
+    background: 
+        radial-gradient(circle at 80% 50%, rgba(18, 97, 214, 0.20), transparent 30%),
+        linear-gradient(120deg, #04101f 0%, #071a33 50%, #0b3d91 100%);
 }
 
+.texto-projetos {
+    color: floralwhite;
+    font-size: medium;
+    font-weight: bolder;
+}
 
 .filtros-projetos {
     display: flex;
@@ -799,7 +804,6 @@ textarea {
     gap: 10px;
     margin-bottom: 35px;
 }
-
 
 .filtro-projeto {
     padding: 9px 17px;
@@ -812,7 +816,6 @@ textarea {
     transition: var(--transicao);
 }
 
-
 .filtro-projeto:hover,
 .filtro-projeto.ativo {
     color: white;
@@ -820,28 +823,51 @@ textarea {
     border-color: var(--azul-principal);
 }
 
-
 .grade-projetos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
-
-
 .cartao-projeto {
+    background: rgba(13, 36, 64, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
     overflow: hidden;
-    border: 1px solid #e1e6ed;
-    border-radius: 11px;
-    background: rgb(245, 245, 247);
-    transition: var(--transicao);
+    transition: transform 0.3s ease;
 }
-
-
 .cartao-projeto:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--sombra-media);
+    transform: translateY(-8px);
+    border-color: #4295ff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+.cartao-projeto p {
+    color: #cccccc;
+}
+.imagem-padrao {
+    height: 180px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.imagem-padrao svg {
+    width: 85px;
+    height: 85px;
+    fill: none;
+    stroke: #4295ff;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 10px rgba(66, 149, 255, 0.4));
+    transition: transform 0.4s ease;
+}
+
+.cartao-projeto:hover .imagem-padrao svg {
+    transform: scale(1.1); /* Faz o desenho crescer suavemente quando passar o mouse */
+}
 
 .imagem-projeto {
     position: relative;
@@ -852,7 +878,6 @@ textarea {
     overflow: hidden;
 }
 
-
 .imagem-projeto::after {
     content: "";
     position: absolute;
@@ -862,26 +887,21 @@ textarea {
     border-radius: 50%;
 }
 
-
 .projeto-azul {
     background: linear-gradient(135deg, #0b3d91, #2582ed);
 }
-
 
 .projeto-cinza {
     background: linear-gradient(135deg, #23364d, #687b91);
 }
 
-
 .projeto-escuro {
     background: linear-gradient(135deg, #04101f, #174d8d);
 }
 
-
 .projeto-claro {
     background: linear-gradient(135deg, #dcecff, #78aef0);
 }
-
 
 .numero-projeto {
     position: absolute;
@@ -892,7 +912,6 @@ textarea {
     font-weight: 700;
 }
 
-
 .simbolo-projeto {
     position: relative;
     z-index: 2;
@@ -902,38 +921,32 @@ textarea {
     font-weight: bold;
 }
 
-
 .projeto-claro .simbolo-projeto {
     color: var(--azul-escuro);
 }
-
 
 .conteudo-projeto {
     padding: 28px;
 }
 
-
 .categoria-projeto {
-    color: var(--azul-principal);
+    color: #4295ff;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-
 .conteudo-projeto h3 {
     margin: 8px 0;
-    color: var(--azul-escuro);
+    color: #ffffff;
     font-size: 22px;
 }
 
-
 .conteudo-projeto p {
-    color: var(--cinza);
+    color: #9eb2c9;
     font-size: 13px;
 }
-
 
 .tecnologias-projeto {
     display: flex;
@@ -942,22 +955,22 @@ textarea {
     margin-top: 20px;
 }
 
-
 .tecnologias-projeto span {
     padding: 5px 9px;
     border-radius: 4px;
-    color: #526176;
-    background: #f0f3f7;
+    color: #b8d6ff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 10px;
 }
-
 
 .link-projeto {
     display: inline-block;
     margin-top: 22px;
-    color: var(--azul-principal);
-    font-size: 12px;
+    margin-right: 15px;
+    color: #4295ff;
     font-weight: 700;
+    font-size: small;
 }
 
 
@@ -1112,40 +1125,26 @@ textarea {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(84, 148, 244, 0.4);
 }
-
-
-
-
-
-
-
 .contato {
     background: var(--azul-escuro);
 }
-
-
 .bloco-contato {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
-
     padding: 75px;
-
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
-
     background:
         radial-gradient(circle at 100% 0%,
             rgba(18, 97, 214, 0.25),
             transparent 40%),
-        #081d37;
+            #081d37;
 }
-
 
 .texto-contato .subtitulo-secao {
     color: #61a5ff;
 }
-
 
 .texto-contato h2 {
     max-width: 550px;
@@ -1155,12 +1154,10 @@ textarea {
     letter-spacing: -1.5px;
 }
 
-
 .texto-contato h2 span {
     display: block;
     color: #4b9cff;
 }
-
 
 .texto-contato>p {
     max-width: 480px;
@@ -1169,14 +1166,12 @@ textarea {
     font-size: 14px;
 }
 
-
 .informacoes-contato {
     display: flex;
     flex-direction: column;
     gap: 13px;
     margin-top: 35px;
 }
-
 
 .informacoes-contato a {
     display: flex;
@@ -1185,7 +1180,6 @@ textarea {
     color: #c7d7ea;
     font-size: 13px;
 }
-
 
 .icone-contato {
     width: 30px;
@@ -1199,77 +1193,6 @@ textarea {
     font-size: 10px;
     font-weight: 700;
 }
-
-
-.formulario-contato {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-
-.campo-formulario label {
-    display: block;
-    margin-bottom: 7px;
-    color: #aebed1;
-    font-size: 11px;
-}
-
-
-.campo-formulario input,
-.campo-formulario textarea {
-    width: 100%;
-    padding: 13px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    outline: none;
-    color: white;
-    background: rgba(255, 255, 255, 0.04);
-    font-size: 13px;
-    transition: var(--transicao);
-}
-
-
-.campo-formulario input::placeholder,
-.campo-formulario textarea::placeholder {
-    color: #667d97;
-}
-
-
-.campo-formulario input:focus,
-.campo-formulario textarea:focus {
-    border-color: #398ff7;
-    background: rgba(255, 255, 255, 0.06);
-}
-
-
-.campo-formulario textarea {
-    resize: vertical;
-}
-
-
-.botao-enviar {
-    border: 0;
-
-    color: white;
-    background: var(--azul-principal);
-
-    cursor: pointer;
-}
-
-
-.botao-enviar:hover {
-    background: #287ce8;
-    transform: translateY(-2px);
-}
-
-
-.mensagem-formulario {
-    min-height: 20px;
-    color: #68d391;
-    font-size: 12px;
-}
-
 
 /*RODAPÉ */
 
