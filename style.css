@@ -21,6 +21,9 @@
     --transicao: all 0.3s ease;
 
     --largura-maxima: 1180px;
+    --fonte-corpo: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --fonte-titulo: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --fonte-codigo: "JetBrains Mono", "Fira Code", monospace;
 }
 
 
@@ -33,11 +36,15 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 78px;
 }
 
 
 body {
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-family: var(--fonte-corpo);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     color: var(--cinza-escuro);
     background: var(--branco);
     line-height: 1.6;
@@ -66,6 +73,26 @@ textarea {
 
 .secao {
     padding: 110px 0;
+}
+
+section[id] {
+    scroll-margin-top: 78px;
+}
+
+h1,
+h2,
+h3,
+.logotipo,
+.texto-destaque {
+    font-family: var(--fonte-titulo);
+}
+
+.simbolo-logotipo,
+.icone-cartao,
+.numero-secao,
+.icone-informacao,
+.tecnologias-projeto span {
+    font-family: var(--fonte-codigo);
 }
 
 
@@ -288,7 +315,8 @@ textarea {
     max-width: 700px;
     font-size: clamp(48px, 6vw, 76px);
     line-height: 1.05;
-    letter-spacing: -3px;
+    font-weight: 800;
+    letter-spacing: -2px;
 }
 
 
@@ -1244,6 +1272,7 @@ textarea {
 
 .cartao-informacao,
 .cartao-habilidade,
+.cartao-habilidade-simples,
 .cartao-projeto,
 .item-tempo {
     opacity: 0;
@@ -1425,4 +1454,297 @@ textarea {
         text-align: center;
     }
 
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE AVANÇADA (TODAS AS TELAS)
+========================================== */
+
+/* Telas Ultra-Wide / Grandes Monitores */
+@media (min-width: 1440px) {
+    :root {
+        --largura-maxima: 1240px;
+    }
+}
+
+/* Notebooks e Tablets em Paisagem */
+@media (max-width: 1100px) {
+    .conteudo-inicio {
+        gap: 48px;
+    }
+
+    .conteudo-sobre {
+        gap: 60px;
+    }
+
+    .moldura-foto {
+        width: 320px;
+        height: 320px;
+    }
+
+    .circulo-foto {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Tablets e Telas Médias */
+@media (max-width: 950px) {
+    .secao-inicio {
+        padding: 130px 0 70px;
+    }
+
+    .texto-sobre {
+        max-width: 100%;
+    }
+
+    .indicador-rolagem {
+        display: none;
+    }
+
+    .linha-tempo {
+        margin-left: 25px;
+    }
+}
+
+/* Smartphones e Tablets Pequenos */
+@media (max-width: 768px) {
+    .cabecalho {
+        background: rgba(4, 16, 31, 0.97);
+    }
+
+    .botao-menu {
+        display: block;
+        padding: 6px;
+        z-index: 1001;
+    }
+
+    .botao-menu span {
+        transition: var(--transicao);
+    }
+
+    .botao-menu.ativo span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .botao-menu.ativo span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .botao-menu.ativo span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .lista-navegacao {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        padding: 25px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        background: rgba(6, 20, 38, 0.98);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: var(--transicao);
+    }
+
+    .lista-navegacao.aberto {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .lista-navegacao li {
+        width: 100%;
+    }
+
+    .link-navegacao {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        padding: 4px 0;
+    }
+
+    .destaque-navegacao {
+        text-align: center;
+        margin-top: 6px;
+    }
+
+    .cabecalho-secao {
+        margin-bottom: 45px;
+        gap: 16px;
+    }
+
+    .grade-projetos {
+        grid-template-columns: 1fr;
+    }
+
+    .grade-habilidades-nova {
+        gap: 16px;
+    }
+
+    .cartao-habilidade-simples {
+        width: calc(50% - 10px);
+        max-width: 180px;
+        padding: 24px 16px;
+    }
+}
+
+/* Smartphones Padrão */
+@media (max-width: 480px) {
+    .navegacao {
+        height: 70px;
+    }
+
+    .lista-navegacao {
+        top: 70px;
+    }
+
+    .secao {
+        padding: 65px 0;
+    }
+
+    .secao-inicio {
+        padding: 110px 0 55px;
+    }
+
+    .texto-inicio h1 {
+        font-size: clamp(34px, 9.5vw, 44px);
+        letter-spacing: -1.2px;
+    }
+
+    .texto-inicio h2 {
+        font-size: 18px;
+        margin-top: 14px;
+    }
+
+    .descricao-inicio {
+        font-size: 15px;
+    }
+
+    .visual-inicio {
+        min-height: 310px;
+        width: 100%;
+    }
+
+    .moldura-foto {
+        width: min(240px, 72vw);
+        height: min(240px, 72vw);
+    }
+
+    .circulo-foto {
+        width: calc(100% - 16px);
+        height: calc(100% - 16px);
+        border-width: 6px;
+    }
+
+    .cartao-flutuante {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .cartao-codigo {
+        left: 0;
+        bottom: 10px;
+    }
+
+    .cartao-experiencia {
+        right: 0;
+        top: 10px;
+    }
+
+    .cartao-experiencia strong {
+        font-size: 15px;
+    }
+
+    .cabecalho-secao h2 {
+        font-size: clamp(28px, 7.5vw, 34px);
+        letter-spacing: -1px;
+    }
+
+    .texto-destaque {
+        font-size: 20px;
+    }
+
+    .cartao-informacao {
+        padding: 18px;
+        gap: 15px;
+    }
+
+    .icone-habilidade {
+        font-size: 52px;
+    }
+
+    .cartao-habilidade-simples span {
+        font-size: 16px;
+    }
+
+    .conteudo-projeto {
+        padding: 22px 18px;
+    }
+
+    .conteudo-projeto h3 {
+        font-size: 19px;
+    }
+
+    .linha-tempo {
+        margin-left: 8px;
+    }
+
+    .item-tempo {
+        padding: 0 0 40px 24px;
+    }
+
+    .conteudo-tempo h3 {
+        font-size: 18px;
+    }
+
+    .bloco-contato-amplo {
+        padding: 30px 10px;
+    }
+
+    .titulo-contato {
+        font-size: 28px;
+    }
+
+    .descricao-contato {
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
+    .item-contato {
+        font-size: 15px;
+        flex-wrap: wrap;
+        word-break: break-word;
+    }
+
+    .icones-sociais {
+        gap: 18px;
+    }
+
+    .icones-sociais a {
+        font-size: 26px;
+        padding: 13px;
+    }
+}
+
+/* Smartphones Compactos */
+@media (max-width: 360px) {
+    .cartao-habilidade-simples {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .cartao-flutuante {
+        padding: 8px 10px;
+    }
 }

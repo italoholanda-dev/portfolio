@@ -2,16 +2,20 @@
 const botaoMenu = document.getElementById("botao-menu");
 const listaNavegacao = document.getElementById("lista-navegacao");
 
-botaoMenu.addEventListener("click", () => {
-    listaNavegacao.classList.toggle("aberto");
-});
+if (botaoMenu && listaNavegacao) {
+    botaoMenu.addEventListener("click", () => {
+        listaNavegacao.classList.toggle("aberto");
+        botaoMenu.classList.toggle("ativo");
+    });
+}
 
 /* FECHAR MENU AO CLICAR EM UM LINK */
 const linksNavegacao = document.querySelectorAll(".link-navegacao");
 
 linksNavegacao.forEach((link) => {
     link.addEventListener("click", () => {
-        listaNavegacao.classList.remove("aberto");
+        if (listaNavegacao) listaNavegacao.classList.remove("aberto");
+        if (botaoMenu) botaoMenu.classList.remove("ativo");
     });
 });
 
@@ -22,13 +26,13 @@ const cartoesProjeto = document.querySelectorAll(".cartao-projeto");
 botoesFiltro.forEach((botao) => {
     botao.addEventListener("click", () => {
         const filtro = botao.dataset.filtro;
-        
+
         botoesFiltro.forEach((item) => {
             item.classList.remove("ativo");
         });
-        
+
         botao.classList.add("ativo");
-        
+
         cartoesProjeto.forEach((projeto) => {
             const categoria = projeto.dataset.categoria;
             if (filtro === "todos" || categoria === filtro) {
@@ -42,7 +46,7 @@ botoesFiltro.forEach((botao) => {
 
 /* ANIMAÇÕES DE ROLAGEM */
 const elementosAnimados = document.querySelectorAll(
-    ".cartao-informacao, .cartao-habilidade, .cartao-projeto, .item-tempo"
+    ".cartao-informacao, .cartao-habilidade, .cartao-habilidade-simples, .cartao-projeto, .item-tempo"
 );
 
 const observador = new IntersectionObserver((entradas) => {
@@ -66,7 +70,7 @@ const secoes = document.querySelectorAll("section[id]");
 
 window.addEventListener("scroll", () => {
     let secaoAtual = "";
-    
+
     secoes.forEach((secao) => {
         const distanciaTopo = secao.offsetTop - 150;
         if (window.scrollY >= distanciaTopo) {
@@ -86,29 +90,33 @@ window.addEventListener("scroll", () => {
 const formulario = document.getElementById("formulario-contato");
 const mensagemFormulario = document.getElementById("mensagem-formulario");
 
-formulario.addEventListener("submit", (evento) => {
-    evento.preventDefault();
-    
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const mensagem = document.getElementById("mensagem").value.trim();
-    
-    if (nome === "" || email === "" || mensagem === "") {
-        mensagemFormulario.textContent = "Preencha todos os campos.";
-        return;
-    }
+if (formulario && mensagemFormulario) {
+    formulario.addEventListener("submit", (evento) => {
+        evento.preventDefault();
 
-    mensagemFormulario.textContent = "Mensagem preparada com sucesso!";
-    formulario.reset();
-});
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mensagem = document.getElementById("mensagem").value.trim();
+
+        if (nome === "" || email === "" || mensagem === "") {
+            mensagemFormulario.textContent = "Preencha todos os campos.";
+            return;
+        }
+
+        mensagemFormulario.textContent = "Mensagem preparada com sucesso!";
+        formulario.reset();
+    });
+}
 
 /* EFEITO NO CABEÇALHO AO ROLAR A TELA */
 const cabecalho = document.querySelector(".cabecalho");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        cabecalho.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.15)";
-    } else {
-        cabecalho.style.boxShadow = "none";
-    }
-});
+if (cabecalho) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            cabecalho.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.15)";
+        } else {
+            cabecalho.style.boxShadow = "none";
+        }
+    });
+}
