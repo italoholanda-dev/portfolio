@@ -27,9 +27,7 @@
 
 ## 📌 Sobre o Projeto
 
-Este repositório contém o código-fonte do **Portfólio Profissional de Italo Holanda Neves**, desenvolvido para centralizar minha apresentação profissional, competências técnicas, trajetória acadêmica e projetos práticos nas áreas de **Desenvolvimento Front-End, Full-Stack e Sistemas Embarcados**.
-
-A interface foi projetada com foco em **Experiência do Usuário (UX)**, **alta legibilidade tipográfica**, **performance de carregamento** e **adaptabilidade fluida** para qualquer resolução de tela — desde smartphones compactos até monitores ultra-wide.
+Este repositório contém o código-fonte do meu site de portfolio oficial, desenvolvido para centralizar minhas competências técnicas, trajetória acadêmica e projetos práticos nas áreas de **Desenvolvimento de Software**.
 
 ---
 
