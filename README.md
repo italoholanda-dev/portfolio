@@ -69,7 +69,7 @@ Projetos integrados e apresentados diretamente no portfólio:
 
 | Projeto | Categoria | Stack Principal | Links |
 | :--- | :--- | :--- | :--- |
-| **Associação Atlética de Manaus** | Desenvolvimento Web | `HTML` `CSS` `JavaScript` `PostgreSQL` | [🌐 Deploy](https://site-corridas-aam.vercel.app/) \| [💻 Código](https://github.com/italoholanda-dev/atletica-manaus) |
+| **Associação Atlética de Manaus** | Desenvolvimento Web | `HTML` `CSS` `JavaScript` `PostgreSQL` | [🌐 Deploy](https://site-corridas-aam.vercel.app/) \| [💻 Código](https://github.com/italoholanda-dev/associacao-atletica-de-manaus) |
 | **Calculadora de Impostos** | Front-End / Back-End | `HTML` `CSS` `JavaScript` | [🌐 Deploy](https://calculadora-impostos-3gft.vercel.app/) \| [💻 Código](https://github.com/italoholanda-dev/calculadora-impostos) |
 | **Servo Motor ESP32** | Sistemas Embarcados | `C++` `PlatformIO` | [💻 Código](https://github.com/italoholanda-dev/servo-motor-esp32) |
 | **Floresta ID Plataforma Digital** | Projeto Full-Stack | `PostgreSQL` `JavaScript` `HTML` `CSS` | *Em desenvolvimento* |
